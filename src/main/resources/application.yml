@@ -1,0 +1,27 @@
+server:
+  port: 8012
+
+spring:
+  application:
+    name: OrgellaConfigServer
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${git.uri}
+          username: ${git.username}
+          password: ${git.password}
+          clone-on-start: true
+  rabbitmq:
+    host: ${rabbit.host:localhost}
+    port: ${rabbit.port:5672}
+    username: ${rabbit.username:guest}
+    password: ${rabbit.password:guest}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

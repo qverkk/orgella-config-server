@@ -1,0 +1,5 @@
+encrypt:
+  key-store:
+    location: ${encrypt.location:'file://${user.home}/${encrypt.file-name:apiEncryptionKey.jks}'}
+    password: ${encrypt.password}
+    alias: ${encrypt.file-alias:${encrypt.file-name:apiEncryptionKey}}
